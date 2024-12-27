@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+
+
+    <script>
+
+let body= document.querySelector("body");
+let div= document.createElement("div");
+let Heading=document.createElement("h1");
+let newPara=document.createElement("p");
+let btn=document.createElement("button");
+newPara.innerHTML="Click Button to Craete Joke ";
+Heading.innerHTML="Random Joke Generator"
+Heading.style.textAlign="center"
+newPara.style.backgroundColor="yellow"
+newPara.style.textAlign="center";
+btn.innerHTML="generator"
+div.style.textAlign="center"
+btn.style.padding="15px"
+btn.style.fontWeight="bold"
+btn.style.borderRadius="20px"
+btn.style.backgroundColor="black"
+btn.style.color="white";
+
+
+body.appendChild(div);
+div.appendChild(Heading);
+div.appendChild(newPara);
+div.appendChild(btn);
+
+
+let btn1=document.querySelector("button");
+btn1.addEventListener("click",async(e)=>{
+
+let api=`https://official-joke-api.appspot.com/random_joke`;
+let randomjokeapi= await fetch(api);
+let data= await randomjokeapi.json();
+
+    newPara.innerHTML=`<h1>Setup:</h1> ${data.setup}, <h1>Punchline:</h1> ${data.punchline}`;
+
+  
+
+console.log(e);
+})
+    </script>
+</body>
+</html>
